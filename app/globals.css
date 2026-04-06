@@ -24,7 +24,7 @@
   --bg:       #0a0a0f;
   --bg2:      #0e0e16;
   --bg3:      #13131e;
-  --surface:  #16161f;
+  --surface:  #111214;
   --surface2: #1c1c28;
 
 --nav-border: linear-gradient(90deg, rgba(36, 102, 242, 0) 0%, #2466F2 50%, rgba(36, 102, 242, 0) 100%);
@@ -32,6 +32,7 @@
 
   --border:   rgba(255,255,255,0.07);
   --border2:  rgba(255,255,255,0.13);
+  --headtext: #e0e3e5;
   --text:     #D0D5D9;
   --text2:    #AAAEB2;
   --text3:    rgba(255,255,255,0.35);
@@ -47,10 +48,11 @@
   --bg:       #f5f5f8;
   --bg2:      #ededf2;
   --bg3:      #e8e8ef;
-  --surface:  #ffffff;
+  --surface:  #edeff0;
   --surface2: #f0f0f5;
   --border:   rgba(0,0,0,0.07);
   --border2:  rgba(0,0,0,0.13);
+  --headtext: #09090f;
   --text:     #09090f;
   --text2:    rgba(9,9,15,0.6);
   --text3:    rgba(9,9,15,0.35);

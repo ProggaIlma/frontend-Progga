@@ -19,16 +19,14 @@ const SunMoonBgIcon = ({ size = 36, className, withBorder = false,preview = fals
         alignItems: "center",    // add this  
         justifyContent: "center",
 
-       ...preview && { border: "2px solid rgba(255, 255, 255, 0.5)" },
-               ...(withBorder ? {
-          padding: "0.5px",
-          background: `
-            radial-gradient(ellipse 60% 50% at top left,     var(--blue) 0%, transparent 100%),
-            radial-gradient(ellipse 60% 40% at top right,    var(--blue) 0%, transparent 100%),
-            radial-gradient(ellipse 50% 25% at bottom left,  var(--blue) 0%, transparent 100%),
-            radial-gradient(ellipse 50% 25% at bottom right, var(--blue) 0%, transparent 100%)
-          `,
-        } : {}),
+       ...preview && { border: "3px solid rgba(255, 255, 255, 0.5)" },
+   ...(withBorder ? {
+  border: "1px solid transparent",
+  background: `
+    linear-gradient(currentColor, currentColor) padding-box,
+    linear-gradient(135deg, #2466F2 0%, rgba(36,102,242,0) 30%, rgba(36,102,242,0.3) 50%, rgba(36,102,242,0) 70%, #2466F2 100%) border-box
+  `,
+} : {}),
       }}
     >
       <svg

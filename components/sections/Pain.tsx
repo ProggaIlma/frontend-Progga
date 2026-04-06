@@ -7,7 +7,7 @@ const SIDE_IMGS = ["/side1.png", "/side2.png", "/side3.png"];
 
 export default function Pain() {
   return (
-    <section className="section-py" style={{ background: "var(--bg2)" }}>
+    <section className="section-py" style={{ background: "var(--bg)" }}>
       <div className="container text-center">
         {/* Badge */}
         <div className="gsap-fade-in flex justify-center mb-6">

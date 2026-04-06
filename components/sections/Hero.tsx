@@ -9,14 +9,11 @@ import { log } from "console";
 
 export default function Hero() {
    const { theme } = useTheme();
-console.log(theme);
-  useEffect(() => {
-    console.log("Mounted, setting theme to:", theme);
-  }, [theme]);
+
 
   const gradient =  theme === "dark"
-    ? "linear-gradient(to bottom, #000000 0%, #1245B3 100%)"
-    : "linear-gradient(to bottom, #ffffff 0%, #1245B3 100%)";
+    ? "linear-gradient(to bottom, #0a0a0f 0%, #1245B3 100%)"
+    : "linear-gradient(to bottom, #f5f5f8 0%, #1245B3 100%)";
 
  
   return (
@@ -67,7 +64,8 @@ console.log(theme);
       </div>
 
       {/* Video*/}
-      <section className="relative w-full h-[700px] flex items-center justify-center overflow-hidden bg-black">
+      <section className="relative w-full max-h-[700px] pb-10 pt-24 flex items-center justify-center overflow-hidden
+      ">
         <div className="absolute inset-0"
        style={{
     background: gradient

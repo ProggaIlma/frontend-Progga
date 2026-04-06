@@ -66,7 +66,7 @@ export default function Curriculum() {
   };
 
   return (
-    <section id="curriculum" className="section-py" style={{ background: "var(--bg2)" }}>
+    <section id="curriculum" className="section-py" style={{ background: "var(--bg)" }}>
       <div className="container">
         <div className="text-center mb-14">
           <div className="gsap-fade-in flex justify-center mb-6">
