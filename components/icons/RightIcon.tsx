@@ -1,11 +1,11 @@
 import React from "react";
 
-interface LightbulbIconProps extends React.SVGProps<SVGSVGElement> {
+interface RightIconProps extends React.SVGProps<SVGSVGElement> {
   size?: number;
   color?: string;
 }
 
-export const LightbulbIcon: React.FC<LightbulbIconProps> = ({ 
+export const RightIcon: React.FC<RightIconProps> = ({ 
   size = 20, 
   color = "currentColor", 
   className, 

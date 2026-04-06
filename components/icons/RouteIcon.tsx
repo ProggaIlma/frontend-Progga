@@ -1,16 +1,23 @@
 import React from "react";
 
-interface PlayIconProps extends React.SVGProps<SVGSVGElement> {
+interface RouteIconProps extends React.SVGProps<SVGSVGElement> {
   size?: number;
   color?: string;
 }
 
-export const PlayIcon: React.FC<PlayIconProps> = ({ size = 18, color = "currentColor", className, ...props }) => {
+export const RouteIcon: React.FC<RouteIconProps> = ({ size = 18, color = "currentColor", className, ...props }) => {
   const width = (size * 15) / 18;
 
   return (
-    <svg width={width} height={size} viewBox="0 0 15 18" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
-      <path d="M12 3.75C12 1.67893 13.6789 0 15.75 0C17.8211 0 19.5 1.67893 19.5 3.75C19.5 5.82107 17.8211 7.5 15.75 7.5C13.6789 7.5 12 5.82107 12 3.75Z" fill="currentColor" />
+<svg
+      width={size}
+      height={size}
+      viewBox="0 0 23 23"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      {...props}
+    >      <path d="M12 3.75C12 1.67893 13.6789 0 15.75 0C17.8211 0 19.5 1.67893 19.5 3.75C19.5 5.82107 17.8211 7.5 15.75 7.5C13.6789 7.5 12 5.82107 12 3.75Z" fill="currentColor" />
       <path d="M0 17.75C0 15.6789 1.67893 14 3.75 14C5.82107 14 7.5 15.6789 7.5 17.75C7.5 19.8211 5.82107 21.5 3.75 21.5C1.67893 21.5 0 19.8211 0 17.75Z" fill="currentColor" />
       <path
         fill-rule="evenodd"

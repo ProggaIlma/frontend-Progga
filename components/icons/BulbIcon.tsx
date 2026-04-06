@@ -5,7 +5,7 @@ interface LightbulbIconProps extends React.SVGProps<SVGSVGElement> {
   color?: string;
 }
 
-export const LightbulbIcon: React.FC<LightbulbIconProps> = ({ 
+export const BulbIcon: React.FC<LightbulbIconProps> = ({ 
   size = 20, 
   color = "currentColor", 
   className, 
@@ -15,7 +15,7 @@ export const LightbulbIcon: React.FC<LightbulbIconProps> = ({
     <svg
       width={size}
       height={size}
-      viewBox="0 0 20 20"
+      viewBox="0 0 23 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}

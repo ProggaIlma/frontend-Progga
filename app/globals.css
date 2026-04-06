@@ -32,8 +32,8 @@
 
   --border:   rgba(255,255,255,0.07);
   --border2:  rgba(255,255,255,0.13);
-  --text:     #ffffff;
-  --text2:    rgba(255,255,255,0.65);
+  --text:     #D0D5D9;
+  --text2:    #AAAEB2;
   --text3:    rgba(255,255,255,0.35);
   --blue:     #2466F2;
   --blue2:    #3b7eff;
@@ -132,8 +132,13 @@ body {
 }
 
 /* ─── Utility Classes ─── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(36, 102, 242, 0) 0%, #2466F2 50%, rgba(36, 102, 242, 0) 100%);
+               
+}
 .container {
-  max-width: 1100px;
+  max-width: 1330px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 24px;
@@ -240,6 +245,20 @@ nav::after {
   content: "";
   position: absolute;
   bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  /* Using your specific gradient */
+  background: linear-gradient(90deg, rgba(36, 102, 242, 0) 0%, #2466F2 50%, rgba(36, 102, 242, 0) 100%);
+}
+footer {
+  position: relative; /* Essential for positioning the border line */
+  /* Your existing footer styles (background, padding, etc.) */
+}
+footer::after {
+  content: "";
+  position: absolute;
+  top: 0;
   left: 0;
   right: 0;
   height: 1px;

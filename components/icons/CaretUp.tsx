@@ -3,21 +3,22 @@
 
 import React from "react";
 
-interface LightbulbIconProps extends React.SVGProps<SVGSVGElement> {
+interface CaretIconProps extends React.SVGProps<SVGSVGElement> {
   size?: number;
   color?: string;
 }
 
-export const LightbulbIcon: React.FC<LightbulbIconProps> = ({ 
-  size = 20, 
+export const CaretIcon: React.FC<CaretIconProps> = ({ 
+  width = 20, 
+  height = 20, 
   color = "currentColor", 
   className, 
   ...props 
 }) => {
   return (
     <svg
-      width={size}
-      height={size}
+      width={width}
+      height={height}
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -3,11 +3,7 @@ import Image from "next/image";
 
 const PAIN_PHOTOS = ["/pain1.png", "/pain2.png", "/pain3.png"];
 
-const SIDE_IMGS = [
-  "/side1.png",
-  "/side2.png",
-  "/side3.png",
-];
+const SIDE_IMGS = ["/side1.png", "/side2.png", "/side3.png"];
 
 export default function Pain() {
   return (
@@ -19,10 +15,10 @@ export default function Pain() {
         </div>
 
         {/* Headline */}
-        <h4 className="h2 gsap-fade-up max-w-[700px] mx-auto mb-10">
+        <h1 className="h1 gsap-fade-up max-w-[700px] mx-auto mb-10">
           If you struggle to focus, feel overwhelmed by endl
           <span style={{ color: "var(--text3)" }}>ess tasks, or procrastinate instead of making progress, you&apos;re not alone.</span>
-        </h4>
+        </h1>
 
         {/* Pain photos */}
         <div className="gsap-fade-in flex justify-center gap-3 flex-wrap mb-20">
@@ -36,15 +32,14 @@ export default function Pain() {
         {/* Bottom two-col layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
           {/* Left photo */}
-          <div className="gsap-slide-left rounded-[20px] overflow-hidden min-h-[500px] lg:min-h-full" style={{ border: "1px solid var(--border)" }}>
-            <Image src="/front1.png" alt="focused work" width={800} height={500} className="w-full h-full object-cover" style={{ minHeight: "500px" }} />
+          <div className="gsap-slide-left rounded-[20px] max-h-[642px] overflow-hidden lg:min-h-full" style={{ border: "1px solid var(--border)" }}>
+            <Image src="/front1.png" alt="focused work" width={365} height={440} className="w-full h-full object-cover" style={{ minHeight: "300px" }} />
           </div>
 
           {/* Right dark panel */}
-          <div
-            className="gsap-slide-right relative rounded-[20px] overflow-hidden flex flex-col justify-between p-8 min-h-[500px]"
-            style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
-          >
+          <div 
+       className="gsap-slide-right gap-10 rounded-[20px] overflow-hidden flex flex-col p-8 min-h-[340px]"
+ style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
             {/* Top row: No worries pill (left) + Avatars (right) */}
             <div className="flex items-start justify-between gap-4">
               {/* No worries pill */}
@@ -79,25 +74,27 @@ export default function Pain() {
               </div>
             </div>
 
-            {/* Middle: quote text */}
-            <div className="flex-1 flex flex-col justify-center py-10 pr-28 lg:pr-32">
-              <p className="text-sm mb-4" style={{ color: "var(--text3)" }}>
-                The ability to concentrate deeply is the ultimate productivity hack
-              </p>
-              <p className="font-semibold leading-tight" style={{ color: "var(--text)", fontSize: "clamp(1.5rem, 3vw, 2rem)" }}>
-                And fortunately it&apos;s a skill you can train &amp; develop.
-              </p>
-            </div>
+            {/* Middle: quote text aligned to center of the side images block (3×120 + 2×12gap = 384px, bottom-4 = 16px) */}
+            {/* Body: text left, side images right */}
+            <div className="flex-1 flex items-center justify-between gap-4 pt-12">
+              {/* Text */}
+              <div className="flex flex-col text-left">
+                <p className="text-sm mb-4" style={{ color: "var(--text3)" }}>
+                  The ability to concentrate deeply is the ultimate productivity hack
+                </p>
+                <p className="font-semibold leading-tight" style={{ color: "var(--text)", fontSize: "clamp(1.5rem, 3vw, 2rem)" }}>
+                  And fortunately it&apos;s a skill you can train &amp; develop.
+                </p>
+              </div>
 
-                  
-
-            {/* Side images — absolutely positioned on right edge */}
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col gap-3 hidden lg:flex">
-              {SIDE_IMGS.map((src, i) => (
-                <div key={i} className="w-[100px] h-[80px] rounded-xl overflow-hidden flex-shrink-0" style={{ border: "1px solid var(--border2)" }}>
-                  <Image src={src} alt="student" width={100} height={100} className="w-full h-full object-cover" />
-                </div>
-              ))}
+              {/* Side images */}
+              <div className="hidden lg:flex flex-col gap-3 flex-shrink-0">
+                {SIDE_IMGS.map((src, i) => (
+                  <div key={i} className="w-[118px] h-[120px] rounded-xl overflow-hidden" style={{ border: "1px solid var(--border2)" }}>
+                    <Image src={src} alt="student" width={118} height={120} className="w-full h-full object-cover" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

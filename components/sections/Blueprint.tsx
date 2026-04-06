@@ -1,29 +1,44 @@
+"use client";
 import Badge from "@/components/ui/Badge";
-
-const ITEMS = [
-  {
-    icon: "💡",
-    title: "Develop laser-sharp focus & eliminate distractions.",
-    desc: "Learn neuroscience-backed techniques to reclaim your attention and work with deep clarity.",
-  },
-  {
-    icon: "🧠",
-    title: "Master deep work techniques for smarter productivity.",
-    desc: "Structured frameworks that let you produce more high-quality work in less time.",
-  },
-  {
-    icon: "✅",
-    title: "Overcome procrastination & get more done.",
-    desc: "Break the procrastination cycle with proven behavioral systems and accountability loops.",
-  },
-  {
-    icon: "🔄",
-    title: "Build lasting habits for long-term success.",
-    desc: "Create a sustainable productivity system that keeps working for years to come.",
-  },
-];
+import { BulbIcon } from "@/components/icons/BulbIcon";
+import { CheckIcon } from "@/components/icons/CheckIcon";
+import { BrainIcon } from "@/components/icons/BrainIcon";
+import { RouteIcon } from "@/components/icons/RouteIcon";
+import { useTheme } from "@/hooks/ThemeProvider";
+import SunMoonBgIcon from "../icons/SunMonBg";
 
 export default function Blueprint() {
+  const { theme } = useTheme();
+  const ITEMS = [
+    {
+      icon: (
+        <BulbIcon
+          className={`relative z-10 w-[28px] h-[28px] transition-colors 
+                  ${theme === "light" ? "text-slate-800" : "text-white "}`}
+        />
+      ),
+      title: "Develop laser-sharp focus & eliminate distractions.",
+      desc: "Learn neuroscience-backed techniques to reclaim your attention and work with deep clarity.",
+    },
+    {
+      icon: <CheckIcon  className={`relative z-10 w-[28px] h-[28px] transition-colors 
+                  ${theme === "light" ? "text-slate-800" : "text-white "}`}/>,
+      title: "Master deep work techniques for smarter productivity.",
+      desc: "Structured frameworks that let you produce more high-quality work in less time.",
+    },
+    {
+      icon: <BrainIcon  className={`relative z-10 w-[28px] h-[28px] transition-colors 
+                  ${theme === "light" ? "text-slate-800" : "text-white "}`}/>,
+      title: "Overcome procrastination & get more done.",
+      desc: "Break the procrastination cycle with proven behavioral systems and accountability loops.",
+    },
+    {
+      icon: <RouteIcon  className={`relative z-10 w-[28px] h-[28px] transition-colors 
+                  ${theme === "light" ? "text-slate-800" : "text-white "}`}/>,
+      title: "Build lasting habits for long-term success.",
+      desc: "Create a sustainable productivity system that keeps working for years to come.",
+    },
+  ];
   return (
     <section className="section-py" style={{ background: "var(--bg)" }}>
       <div className="container text-center">
@@ -36,15 +51,15 @@ export default function Blueprint() {
         {/* Timeline */}
         <div className="max-w-[560px] mx-auto text-left">
           {ITEMS.map((item, i) => (
-            <div key={i} className="gsap-fade-up relative" style={{ paddingLeft: "40px", paddingBottom: i < ITEMS.length - 1 ? "56px" : "0" }} data-delay={i}>
+            <div key={i} className="gsap-fade-up relative" style={{ paddingLeft: "40px", paddingBottom: i < ITEMS.length ? "66px" : "0" }} data-delay={i}>
               {/* Vertical line — blue at top fading to transparent */}
-              {i < ITEMS.length - 1 && (
+              {i < ITEMS.length && (
                 <div
                   className="absolute"
                   style={{
                     left: "9px",
-                    top: "40px", 
-                    bottom: "40px", 
+                    top: "40px",
+                    bottom: "40px",
                     width: "2px",
                     background: "linear-gradient(to bottom, transparent 0%, #2466F2 35%, #2466F2 50%, #4B7FE8 65%, transparent 100%)",
                   }}
@@ -56,7 +71,7 @@ export default function Blueprint() {
                 className="absolute"
                 style={{
                   left: "0px",
-                  top: "4px",
+                  top: "0px",
                   width: "20px",
                   height: "20px",
                   borderRadius: "99px",
@@ -64,18 +79,12 @@ export default function Blueprint() {
                   zIndex: 1,
                 }}
               />
+<div className="flex flex-col items-start gap-4 ml-9 pt-6">
+              <div className="relative w-[68px] h-[68px] rounded-full flex items-center justify-center transition-all">
+                <div className="absolute inset-0 z-0 text-[var(--neutral-200)]" style={theme === "light" ? { color: "var(--neutral-200)" } : { color: "#282d33" }}>
+                  <SunMoonBgIcon size={64} withBorder={true}  />
+                </div>
 
-              {/* Icon circle */}
-              <div
-                className="flex items-center justify-center mb-5"
-                style={{
-                  width: "56px",
-                  height: "56px",
-                  borderRadius: "50%",
-                  background: "rgba(255,255,255,0.07)",
-                  fontSize: "22px",
-                }}
-              >
                 {item.icon}
               </div>
 
@@ -91,6 +100,7 @@ export default function Blueprint() {
               >
                 {item.title}
               </p>
+              </div>
             </div>
           ))}
         </div>

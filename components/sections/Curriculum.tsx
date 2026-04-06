@@ -1,14 +1,18 @@
 "use client";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import Badge from "@/components/ui/Badge";
-
+import SunMoonBgIcon from "../icons/SunMonBg";
+import { CheckIcon } from "@/components/icons/CheckIcon";
+import { useTheme } from "@/hooks/useTheme";
+import { PlayIcon } from "../icons/PlayIcon";
+import { CaretIcon } from "../icons/CaretUp";
 const MODULES = [
   {
     title: "Module 1: Foundations of Deep Work",
     duration: "1.7h of video",
     lessons: [
       { title: "Understanding Focus & Distraction", duration: "14:23", preview: true, active: true },
-      { title: "The Science Behind Deep Work",       duration: "22:51" },
+      { title: "The Science Behind Deep Work", duration: "22:51" },
       { title: "Identifying Your Productivity Killers", duration: "34:42" },
       { title: "How to Strengthen Your Attention Span", duration: "27:08" },
     ],
@@ -17,8 +21,8 @@ const MODULES = [
     title: "Module 2: Building Your Deep Work Routine",
     duration: "1.3h of video",
     lessons: [
-      { title: "Designing Your Ideal Day",      duration: "18:30" },
-      { title: "Time Blocking Mastery",         duration: "25:10" },
+      { title: "Designing Your Ideal Day", duration: "18:30" },
+      { title: "Time Blocking Mastery", duration: "25:10" },
       { title: "Energy Management Fundamentals", duration: "35:20" },
     ],
   },
@@ -27,17 +31,17 @@ const MODULES = [
     duration: "1.5h of video",
     lessons: [
       { title: "The Root Causes of Procrastination", duration: "22:00" },
-      { title: "Implementation Intentions",          duration: "28:45" },
-      { title: "Building Momentum Daily",            duration: "39:15" },
+      { title: "Implementation Intentions", duration: "28:45" },
+      { title: "Building Momentum Daily", duration: "39:15" },
     ],
   },
   {
     title: "Module 4: Advanced Focus & Productivity Hacks",
     duration: "1.2h of video",
     lessons: [
-      { title: "Flow State Engineering",        duration: "30:00" },
+      { title: "Flow State Engineering", duration: "30:00" },
       { title: "Digital Minimalism in Practice", duration: "24:00" },
-      { title: "Sustaining High Performance",   duration: "18:00" },
+      { title: "Sustaining High Performance", duration: "18:00" },
     ],
   },
 ];
@@ -50,7 +54,16 @@ const FEATURES = [
 ];
 
 export default function Curriculum() {
-  const [openIndex, setOpenIndex] = useState<number>(0);
+  // Set of open indices — multiple can be open
+  const [openSet, setOpenSet] = useState<Set<number>>(new Set());
+  const { theme } = useTheme();
+  const toggle = (i: number) => {
+    setOpenSet((prev) => {
+      const next = new Set(prev);
+      next.has(i) ? next.delete(i) : next.add(i);
+      return next;
+    });
+  };
 
   return (
     <section id="curriculum" className="section-py" style={{ background: "var(--bg2)" }}>
@@ -60,100 +73,142 @@ export default function Curriculum() {
             <Badge>Course Curriculum</Badge>
           </div>
           <h2 className="h2 gsap-fade-up">
-            Mastering Deep Work: A Structured<br className="hidden sm:block" /> Path to Peak Productivity
+            Mastering Deep Work: A Structured
+            <br className="hidden sm:block" /> Path to Peak Productivity
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-10 items-start">
-          {/* Modules list */}
-          <div className="flex flex-col gap-1">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {" "}
+          {/* Left — flat module list */}
+          <div
+            className="w-full"
+            style={{
+              maxHeight: "calc(100vh - var(--nav-h) - 100px)",
+              overflowY: "auto",
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            }}
+          >
             {MODULES.map((mod, mi) => {
-              const isOpen = openIndex === mi;
+              const isOpen = openSet.has(mi);
               return (
-                <div
-                  key={mi}
-                  className="gsap-fade-up rounded-xl overflow-hidden border transition-colors"
-                  style={{ background: "var(--surface)", borderColor: isOpen ? "var(--border2)" : "var(--border)" }}
-                  data-delay={mi}
-                >
-                  {/* Header */}
-                  <button
-                    className="w-full flex items-center justify-between px-5 py-[18px] border-none bg-transparent cursor-pointer text-left"
-                    onClick={() => setOpenIndex(isOpen ? -1 : mi)}
-                  >
+                <div key={mi}>
+                  {/* Module header */}
+                  <button className="w-full flex items-start justify-between py-6 text-left bg-transparent border-none cursor-pointer gap-4" onClick={() => toggle(mi)}>
                     <div>
-                      <p className="h5" style={{ color: "var(--text)" }}>{mod.title}</p>
-                      <p className="body-sm mt-0.5" style={{ color: "var(--text2)" }}>{mod.duration}</p>
+                      <p className="font-medium text-[20px] leading-snug mb-1" style={{ color: "var(--text)" }}>
+                        {mod.title}
+                      </p>
+                      <p className="font-normal text-sm" style={{ color: "var(--text2)" }}>
+                        {mod.duration}
+                      </p>
                     </div>
-                    <span
-                      className="text-[var(--text3)] text-xs transition-transform duration-300 ml-4 flex-shrink-0"
-                      style={{ transform: isOpen ? "rotate(180deg)" : "none" }}
-                    >
-                      ▼
-                    </span>
-                  </button>
 
+                    {/* Triangle arrow */}
+                    <div className="flex-shrink-0 mt-1 " style={{ transform: isOpen ? "rotate(180deg)" : "none" }}>
+                      <CaretIcon width={19} height={15} color={theme === "light" ? "var(--text)" : "var(--text2)"} />
+                    </div>
+                  </button>
+ {/* Divider — gradient line like Figma */}
+                  <div
+                    className="divider"
+                  />
                   {/* Lessons */}
                   {isOpen && (
-                    <div className="border-t" style={{ borderColor: "var(--border)" }}>
+                    <div className="pb-4">
                       {mod.lessons.map((lesson, li) => (
-                        <div
-                          key={li}
-                          className="flex items-center gap-3.5 px-5 py-3 border-b last:border-b-0"
-                          style={{ borderColor: "var(--border)" }}
-                        >
-                          {/* Play btn */}
-                          <div
-                            className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] flex-shrink-0 border"
-                            style={{
-                              background: lesson.active ? "var(--blue)" : "var(--surface2)",
-                              borderColor: lesson.active ? "var(--blue)" : "var(--border2)",
-                              color: lesson.active ? "white" : "var(--text2)",
-                            }}
-                          >
-                            ▶
-                          </div>
-                          <span className="body-sm flex-1" style={{ color: "var(--text)" }}>{lesson.title}</span>
-                          {lesson.preview && (
-                            <span
-                              className="text-[11px] px-2 py-0.5 rounded font-medium"
-                              style={{ background: "rgba(37,99,235,0.15)", color: "var(--blue2)" }}
-                            >
-                              Preview
+                        <Fragment key={li}>
+                          <div className="flex items-center gap-3.5 py-6 px-4">
+                            {/* Play circle */}
+                            {!lesson.preview ? (
+                              <div className="relative w-[32px] h-[32px] rounded-full flex items-center justify-center transition-all">
+                                {/* Background icon — same size as wrapper */}
+                                <div className="absolute inset-0 flex items-center justify-center" style={theme === "light" ? { color: "var(--neutral-200)" } : { color: "#282d33" }}>
+                                  <SunMoonBgIcon size={32} />
+                                </div>
+
+                                <PlayIcon
+                                  className={`relative z-10 w-[13px] h-[13px] transition-colors 
+                ${theme === "light" ? "text-white" : "text-black"}`}
+                                />
+                              </div>
+                            ) : (
+                              <div className="relative w-[32px] h-[32px] rounded-full flex items-center justify-center transition-all">
+                                {/* Background icon — same size as wrapper */}
+                                <div className="absolute inset-0 flex items-center justify-center" style={theme === "light" ? { color: "var(--blue)" } : { color: "#ffffff" }}>
+                                  <SunMoonBgIcon size={32} preview={lesson.preview} />
+                                </div>
+
+                                {/* Check icon — centered via flex on parent */}
+                                <PlayIcon
+                                  className={`relative z-10 w-[13px] h-[13px] transition-colors 
+                ${theme === "light" ? "text-white" : "text-[var(--blue)]"}`}
+                                />
+                              </div>
+                            )}
+
+                            <span className="text-[20px] font-normal flex-1" style={{ color: "var(--text2)" }}>
+                              {lesson.title}
                             </span>
-                          )}
-                          <span className="body-sm flex-shrink-0" style={{ color: "var(--text3)" }}>{lesson.duration}</span>
-                        </div>
+
+                            {lesson.preview && (
+                              <span className="text-[17px] px-4 py-1 rounded-full font-medium flex-shrink-0" style={{ background: "rgba(37,99,235,0.15)", color: "var(--blue2)" }}>
+                                Preview
+                              </span>
+                            )}
+
+                            <span className="text-[17px] flex-shrink-0" style={{ color: "var(--text2)" }}>
+                              {lesson.duration}
+                            </span>
+                          </div>
+                          <div
+                            className="divider"
+                          />
+                        </Fragment>
                       ))}
                     </div>
                   )}
+
+                 
                 </div>
               );
             })}
           </div>
-
-          {/* Sticky sidebar */}
+          {/* Right — sticky sidebar */}
           <div
-            className="gsap-scale-in rounded-xl border p-7 lg:sticky"
-            style={{ background: "var(--surface)", borderColor: "var(--border2)", top: "calc(var(--nav-h) + 20px)" }}
+            className="gsap-scale-in rounded-2xl p-8 lg:sticky w-full"
+            style={{
+              background: "var(--surface)",
+              border: "1px solid var(--border2)",
+              top: "calc(var(--nav-h) + 20px)",
+              height: "fit-content",
+            }}
           >
-            <p className="h4 mb-5" style={{ color: "var(--text)" }}>Not only video lessons!</p>
-            {FEATURES.map((f, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-3 py-3 border-b last:border-b-0 body-sm"
-                style={{ borderColor: "var(--border)", color: "var(--text2)" }}
-              >
-                <span
-                  className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] flex-shrink-0"
-                  style={{ background: "rgba(37,99,235,0.15)", color: "var(--blue2)" }}
-                >
-                  ✓
-                </span>
-                {f}
-              </div>
-            ))}
-            <a href="#pricing" className="btn-primary w-full mt-5" style={{ fontSize: "15px", padding: "14px" }}>
+            <h3 className="font-semibold mb-8" style={{ color: "var(--text)", fontSize: "clamp(1.3rem, 2.5vw, 1.6rem)", lineHeight: 1.3 }}>
+              Not only video lessons!
+            </h3>
+
+            <div className="flex flex-col gap-5 mb-8">
+              {FEATURES.map((f, i) => (
+                <div key={i} className="flex items-center gap-4">
+                  <div className="relative w-[32px] h-[32px] rounded-full flex items-center justify-center transition-all">
+                    <div className="absolute inset-0 flex items-center justify-center" style={theme === "light" ? { color: "var(--neutral-200)" } : { color: "#282d33" }}>
+                      <SunMoonBgIcon size={32} withBorder={true} />
+                    </div>
+                    <CheckIcon
+                      className={`relative z-10 w-[16px] h-[16px] transition-colors 
+                ${theme === "light" ? "text-slate-800" : "text-white"}`}
+                    />
+                  </div>
+                  <span className="text-sm" style={{ color: "var(--text2)", lineHeight: 1.5 }}>
+                    {f}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <a href="#pricing" className="btn-primary block text-center w-full" style={{ fontSize: "15px", padding: "15px", borderRadius: "12px" }}>
               Enroll now
             </a>
           </div>
