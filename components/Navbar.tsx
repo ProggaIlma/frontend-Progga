@@ -1,0 +1,117 @@
+"use client";
+import { useState } from "react";
+import { useEffect } from "react";
+import Link from "next/link";
+import { useTheme } from "@/hooks/useTheme";
+import SunIcon from "./icons/SunIcon";
+import MoonIcon from "./icons/MoonIcon";
+import SunMoonBgIcon from "./icons/SunMonBg";
+import LogoIcon from "./icons/LogoIcon";
+const NAV_LINKS = [
+  { label: "Overview", href: "#overview" },
+  { label: "Curriculum", href: "#curriculum" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "Pricing", href: "#pricing" },
+];
+
+export default function Navbar() {
+  const { theme, setTheme } = useTheme();
+  const [open, setOpen] = useState(false);
+
+  const closeMobile = () => setOpen(false);
+useEffect(() => {
+    console.log("Mounted, setting theme to:", theme);
+  }, [theme]);
+  return (
+    <>
+      {/* ── Main nav bar ── */}
+      <nav
+        className="nav-blur fixed top-0 left-0 right-0 z-50 border-b border-[var(--border)] border-[var(--nav-border)]] transition-colors"
+        style={{ height: "var(--nav-h)", background: theme === "dark" ? "rgba(10,10,15,0.78)" : "rgba(245,245,248,0.84)" }}
+      >
+        <div className="container h-full flex items-center gap-6">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2.5 text-[var(--text)] no-underline flex-shrink-0">
+            <LogoIcon className={`w-[84px] h-[31px] transition-colors ${theme === "dark" ? "text-white" : "text-slate-800"}`} />{" "}
+          </Link>
+
+          {/* Desktop links */}
+          <ul className="hidden md:flex items-center gap-8 mx-auto list-none">
+            {NAV_LINKS.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className="body-sm h4 text-[var(--text)] no-underline">
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* Right side */}
+          <div className="flex items-center gap-3 ml-auto md:ml-0">
+          
+
+            <div className="flex items-center gap-0.5 p-1 rounded-full border" style={{ background: "var(--surface2)", borderColor: "var(--border2)" }}>
+              <div onClick={() => setTheme("dark")} className="relative w-7 h-7 rounded-full flex items-center justify-center transition-all cursor-pointer overflow-hidden">
+                {theme === "dark" && (
+                  <div className="absolute inset-0 z-0" style={{ color: "#282d33" }}>
+                    <SunMoonBgIcon />
+                  </div>
+                )}
+
+                <MoonIcon className={`relative z-10 w-[14px] h-[14px] transition-colors ${theme === "dark" ? "text-white" : "text-slate-800 "}`} />
+              </div>
+
+              <div onClick={() => setTheme("light")} className="relative w-7 h-7 rounded-full flex items-center justify-center transition-all cursor-pointer overflow-hidden">
+                {theme === "light" && (
+                  <div className="absolute inset-0 z-0 text-[var(--neutral-200)]">
+                    <SunMoonBgIcon />
+                  </div>
+                )}
+
+                <SunIcon className={`relative z-10 w-[14px] h-[14px] transition-colors ${theme === "light" ? "text-slate-800" : "text-white "}`} />
+              </div>
+            </div>
+
+            {/* CTA */}
+            <a href="#pricing" className="btn-primary hidden sm:inline-flex">
+              Enroll now
+            </a>
+
+            {/* Hamburger */}
+            <button className="flex md:hidden flex-col gap-[5px] p-1 bg-transparent border-none cursor-pointer" onClick={() => setOpen((o) => !o)} aria-label="Toggle menu">
+              <span
+                className="block w-[22px] h-[2px] rounded-sm transition-all duration-300"
+                style={{
+                  background: "var(--text)",
+                  transform: open ? "translateY(7px) rotate(45deg)" : "none",
+                }}
+              />
+              <span className="block w-[22px] h-[2px] rounded-sm transition-all duration-300" style={{ background: "var(--text)", opacity: open ? 0 : 1 }} />
+              <span
+                className="block w-[22px] h-[2px] rounded-sm transition-all duration-300"
+                style={{
+                  background: "var(--text)",
+                  transform: open ? "translateY(-7px) rotate(-45deg)" : "none",
+                }}
+              />
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* ── Mobile menu ── */}
+      {open && (
+        <div className="fixed left-0 right-0 z-40 border-b flex flex-col px-6 py-6 gap-5 md:hidden" style={{ top: "var(--nav-h)", background: "var(--bg2)", borderColor: "var(--border)" }}>
+          {NAV_LINKS.map((l) => (
+            <a key={l.href} href={l.href} onClick={closeMobile} className="body-normal text-[var(--text2)] no-underline border-b pb-4" style={{ borderColor: "var(--border)" }}>
+              {l.label}
+            </a>
+          ))}
+          <a href="#pricing" className="btn-primary mt-2" onClick={closeMobile}>
+            Enroll now
+          </a>
+        </div>
+      )}
+    </>
+  );
+}
