@@ -14,7 +14,7 @@ export default function Blueprint() {
       icon: (
         <BulbIcon
           className={`relative z-10 w-[28px] h-[28px] transition-colors 
-                  ${theme === "light" ? "text-slate-800" : "text-white "}`}
+                  text-primary`}
         />
       ),
       title: "Develop laser-sharp focus & eliminate distractions.",
@@ -24,7 +24,7 @@ export default function Blueprint() {
       icon: (
         <CheckIcon
           className={`relative z-10 w-[28px] h-[28px] transition-colors 
-                  ${theme === "light" ? "text-slate-800" : "text-white "}`}
+                  text-primary`}
         />
       ),
       title: "Master deep work techniques for smarter productivity.",
@@ -34,7 +34,7 @@ export default function Blueprint() {
       icon: (
         <BrainIcon
           className={`relative z-10 w-[28px] h-[28px] transition-colors 
-                  ${theme === "light" ? "text-slate-800" : "text-white "}`}
+                  text-primary`}
         />
       ),
       title: "Overcome procrastination & get more done.",
@@ -44,7 +44,7 @@ export default function Blueprint() {
       icon: (
         <RouteIcon
           className={`relative z-10 w-[28px] h-[28px] transition-colors 
-                  ${theme === "light" ? "text-slate-800" : "text-white "}`}
+                  text-primary`}
         />
       ),
       title: "Build lasting habits for long-term success.",
@@ -52,13 +52,13 @@ export default function Blueprint() {
     },
   ];
   return (
-    <section className="section-py" style={{ background: "var(--bg)" }}>
+    <section id="blueprint" className="section-py" style={{ background: "var(--bg)" }}>
       <div className="container text-center">
         {/* Badge */}
         <div className="gsap-fade-in flex justify-center mb-6">
           <Badge>The Deep Work Blueprint</Badge>
         </div>
-        <h2 className="h2 gsap-fade-up max-w-[640px] mx-auto mb-16">A self-paced, results-driven course designed to help you</h2>
+        <h2 className="h2 gsap-fade-up max-w-[640px] mx-auto mb-[9rem] text-[var(--headtext)]" >A self-paced, results-driven course designed to help you</h2>
 
         {/* Timeline */}
         <div className="max-w-[400px] mx-auto text-left">

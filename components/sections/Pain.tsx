@@ -15,13 +15,13 @@ export default function Pain() {
         </div>
 
         {/* Headline */}
-        <h1 className="h1 gsap-fade-up max-w-[700px] mx-auto mb-10">
+        <h1 className="h1 gsap-fade-up max-w-[700px] mx-auto mb-10"style={{ color: "var(--headtext)" }}>
           If you struggle to focus, feel overwhelmed by endl
           <span style={{ color: "var(--text3)" }}>ess tasks, or procrastinate instead of making progress, you&apos;re not alone.</span>
         </h1>
 
         {/* Pain photos */}
-        <div className="gsap-fade-in flex justify-center gap-3 flex-wrap mb-20">
+        <div className="gsap-fade-in flex justify-center gap-3 flex-wrap mb-[9rem]">
           {PAIN_PHOTOS.map((src, i) => (
             <div key={i} className="w-[120px] h-[120px] rounded-2xl overflow-hidden border" style={{ borderColor: "var(--border2)", background: "var(--surface)" }}>
               <Image src={src} alt="student" width={100} height={100} className="w-full h-full object-cover" />
@@ -30,14 +30,14 @@ export default function Pain() {
         </div>
 
         {/* Bottom two-col layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-stretch">
           {/* Left photo */}
-          <div className="hidden lg:block gsap-slide-left rounded-[20px] max-h-[642px] overflow-hidden lg:min-h-full" style={{ border: "1px solid var(--border)" }}>
+          <div className="hidden lg:block lg:col-span-2 gsap-slide-left rounded-[20px] max-h-[642px] overflow-hidden lg:min-h-full" style={{ border: "1px solid var(--border)" }}>
             <Image src="/front1.png" alt="focused work" width={365} height={440} className="w-full h-full object-cover" style={{ minHeight: "300px" }} />
           </div>
 
           {/* Right dark panel */}
-          <div className="gsap-slide-right gap-10 rounded-[20px] overflow-hidden flex flex-col p-10 min-h-[340px]" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
+          <div className="gsap-slide-right lg:col-span-3 gap-10 rounded-[20px] overflow-hidden flex flex-col p-10 min-h-[340px]" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
             {/* Top row: No worries pill (left) + Avatars (right) */}
             <div className="flex flex-col sm:flex-row items-start justify-start sm:justify-between gap-4">
               {/* No worries pill */}
@@ -75,7 +75,7 @@ export default function Pain() {
                 <p className="text-body-normal mb-4 pr-3" style={{ color: "var(--text3)" }}>
                   The ability to concentrate deeply is the ultimate productivity hack
                 </p>
-                <p className="font-medium leading-tight pr-3" style={{ color: "var(--text)", fontSize: "clamp(1.5rem, 3vw, 2rem)" }}>
+                <p className="font-medium   leading-tight pr-3" style={{ color: "var(--text)", fontSize: "clamp(1.5rem, 3vw, 2rem)" }}>
                   And fortunately it&apos;s a skill you can train &amp; develop.
                 </p>
               </div>

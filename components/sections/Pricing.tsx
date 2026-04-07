@@ -17,15 +17,7 @@ export default function Pricing() {
   return (
     <section id="pricing" className="section-py" style={{ background: "var(--bg)" }}>
       <div className="container">
-        <div className="text-center mb-14">
-          <div className="gsap-fade-in flex justify-center mb-6">
-            <Badge>Pricing</Badge>
-          </div>
-          <h2 className="h2 gsap-fade-up">Simple, Transparent Pricing</h2>
-          <p className="body-normal mt-3 gsap-fade-up" style={{ color: "var(--text2)" }}>
-            One payment. Lifetime access. No subscriptions.
-          </p>
-        </div>
+       
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {/* Left — what you get */}
@@ -52,7 +44,7 @@ export default function Pricing() {
                       className="relative z-10 w-[16px] h-[16px] transition-colors text-primary"
                     />
                   </div>
-                  <span className="body-sm" style={{ color: "var(--text)", top: "5px", position: "relative" }}>
+                  <span className="body-sm" style={{ color: "var(--text2)", top: "5px", position: "relative" }}>
                     {item}
                   </span>
                 </div>
@@ -62,7 +54,7 @@ export default function Pricing() {
 
           {/* Right — price card */}
           <div
-            className="gsap-scale-in md:col-span-1 rounded-xl border p-9 flex flex-col glow-blue"
+            className="gsap-scale-in md:col-span-1 rounded-xl border p-9 flex flex-col"
             style={{
               borderColor: "transparent",
               background: `

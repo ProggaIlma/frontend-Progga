@@ -67,21 +67,21 @@ export default function Curriculum() {
   return (
     <section id="curriculum" className="section-py" style={{ background: "var(--bg)" }}>
       <div className="container">
-        <div className="text-center mb-14">
+        <div className="text-center mb-[9rem]">
           <div className="gsap-fade-in flex justify-center mb-6">
             <Badge>Course Curriculum</Badge>
           </div>
-          <h2 className="h2 gsap-fade-up">
+          <h2 className="h2 gsap-fade-up text-[var(--headtext)]">
             Mastering Deep Work: A Structured
             <br className="hidden sm:block" /> Path to Peak Productivity
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start px-3">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start px-12 mt-5">
           {" "}
           {/* Left — flat module list */}
           <div
-            className="w-full"
+            className="w-full lg:col-span-3"
             style={{
               maxHeight: "calc(100vh - var(--nav-h) - 100px)",
               overflowY: "auto",
@@ -96,7 +96,7 @@ export default function Curriculum() {
                   {/* Module header */}
                   <button className="w-full flex items-start justify-between py-6 text-left bg-transparent border-none cursor-pointer gap-4" onClick={() => toggle(mi)}>
                     <div>
-                      <p className="font-medium  leading-snug mb-1" style={{ color: "var(--text)",fontSize:"20px" }}>
+                      <p className="font-medium  leading-snug mb-1" style={{ color: "var(--text)", fontSize: "20px" }}>
                         {mod.title}
                       </p>
                       <p className="font-normal text-sm" style={{ color: "var(--text2)" }}>
@@ -105,14 +105,12 @@ export default function Curriculum() {
                     </div>
 
                     {/* Triangle arrow */}
-                    <div className="flex-shrink-0 mt-1 " style={{ transform: isOpen ? "rotate(180deg)" : "none" }}>
-                      <CaretIcon width={19} height={15} color={theme === "light" ? "var(--text)" : "var(--text2)"} />
+                    <div className="flex-shrink-0 mt-1 " style={{ transform: isOpen ? "none" : "rotate(180deg)" }}>
+                      <CaretIcon width={28} height={18} color={theme === "light" ? "var(--text)" : "var(--text2)"} />
                     </div>
                   </button>
- {/* Divider — gradient line like Figma */}
-                  <div
-                    className="divider"
-                  />
+                  {/* Divider — gradient line like Figma */}
+                  <div className="divider" />
                   {/* Lessons */}
                   {isOpen && (
                     <div className="pb-4">
@@ -123,7 +121,8 @@ export default function Curriculum() {
                             {!lesson.preview ? (
                               <div className="relative w-[32px] h-[32px] rounded-full flex items-center justify-center transition-all">
                                 {/* Background icon — same size as wrapper */}
-                                <div className="absolute inset-0 flex items-center justify-center" style={theme === "light" ? { color: "var(--neutral-200)" } : { color: "#282d33" }}>
+                                <div className="absolute inset-0 flex items-center justify-center text-[var(--play-btn-bg)]" 
+                               >
                                   <SunMoonBgIcon size={32} />
                                 </div>
 
@@ -152,7 +151,8 @@ export default function Curriculum() {
                             </span>
 
                             {lesson.preview && (
-                              <span className="text-body-normal px-4 py-1 rounded-full font-medium flex-shrink-0" style={{ background: "rgba(37,99,235,0.15)", color: "var(--blue2)" }}>
+                              <span className="preview-btn text-body-sm px-4 py-1 rounded-full font-medium flex-shrink-0" 
+                              >
                                 Preview
                               </span>
                             )}
@@ -161,25 +161,21 @@ export default function Curriculum() {
                               {lesson.duration}
                             </span>
                           </div>
-                          <div
-                            className="divider"
-                          />
+                          <div className="divider" />
                         </Fragment>
                       ))}
                     </div>
                   )}
-
-                 
                 </div>
               );
             })}
           </div>
           {/* Right — sticky sidebar */}
           <div
-            className="gsap-scale-in border rounded-2xl p-8 lg:sticky w-full"
+            className="gsap-scale-in border rounded-2xl p-8 lg:sticky lg:col-span-2 w-full"
             style={{
-             borderColor: "transparent",
-                  background: `
+              borderColor: "transparent",
+              background: `
     linear-gradient(var(--surface), var(--surface)) padding-box, 
     linear-gradient(135deg, #2466F2 0%, rgba(36,102,242,0.4) 35%, rgba(36,102,242,0) 65%, #2466F2 100%) border-box
   `,
@@ -198,9 +194,7 @@ export default function Curriculum() {
                     <div className="absolute inset-0 flex items-center justify-center" style={theme === "light" ? { color: "var(--neutral-200)" } : { color: "#282d33" }}>
                       <SunMoonBgIcon size={32} withBorder={true} />
                     </div>
-                    <CheckIcon
-                      className="relative z-10 w-[16px] h-[16px] transition-colors text-primary"
-                    />
+                    <CheckIcon className="relative z-10 w-[16px] h-[16px] transition-colors text-primary" />
                   </div>
                   <span className="text-sm" style={{ color: "var(--text2)", lineHeight: 1.5 }}>
                     {f}
@@ -209,7 +203,7 @@ export default function Curriculum() {
               ))}
             </div>
 
-            <a href="#pricing" className="text-body-normal btn-primary block text-center w-full px-4 py-5" style={{   borderRadius: "12px" }}>
+            <a href="#pricing" className="text-body-normal btn-primary block text-center w-full px-4 py-5" style={{ borderRadius: "12px" }}>
               Enroll now
             </a>
           </div>

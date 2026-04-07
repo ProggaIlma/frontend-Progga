@@ -9,7 +9,7 @@ import SunMoonBgIcon from "./icons/SunMonBg";
 import LogoIcon from "./icons/LogoIcon";
 import {HamburgerIcon} from "./icons/HamBurgerIcon";
 const NAV_LINKS = [
-  { label: "Overview", href: "#overview" },
+  { label: "Overview", href: "#blueprint" },
   { label: "Curriculum", href: "#curriculum" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Pricing", href: "#pricing" },
@@ -49,7 +49,7 @@ export default function Navbar() {
           
 
             <div className="flex items-center gap-0.5 p-1 rounded-full border" style={{ background: "var(--surface2)", borderColor: "var(--border2)" }}>
-              <div onClick={() => setTheme("dark")} className="relative w-7 h-7 rounded-full flex items-center justify-center transition-all cursor-pointer overflow-hidden">
+              <div onClick={() => setTheme("dark")} className="relative w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer overflow-hidden">
                 {theme === "dark" && (
                   <div className="absolute inset-0 z-0" style={{ color: "#282d33" }}>
                     <SunMoonBgIcon />
@@ -59,7 +59,7 @@ export default function Navbar() {
                 <MoonIcon className={`relative z-10 w-[14px] h-[14px] transition-colors text-primary`} />
               </div>
 
-              <div onClick={() => setTheme("light")} className="relative w-7 h-7 rounded-full flex items-center justify-center transition-all cursor-pointer overflow-hidden">
+              <div onClick={() => setTheme("light")} className="relative w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer overflow-hidden">
                 {theme === "light" && (
                   <div className="absolute inset-0 z-0 text-[var(--neutral-200)]">
                     <SunMoonBgIcon />
