@@ -37,6 +37,7 @@
   --text:     #D0D5D9;
   --text2:    #AAAEB2;
   --text3:    rgba(255,255,255,0.35);
+  --text-primary: #ffffff;
   --blue:     #2466F2;
   --blue2:    #3b7eff;
   --blue-glow:  rgba(37,99,235,0.22);
@@ -58,6 +59,7 @@
   --text:     #09090f;
   --text2:    rgba(9,9,15,0.6);
   --text3:    rgba(9,9,15,0.35);
+  --text-primary: #171B21;
   --blue-glow:  rgba(37,99,235,0.12);
   --blue-glow2: rgba(37,99,235,0.05);
 }
@@ -136,6 +138,9 @@ body {
 }
 
 /* ─── Utility Classes ─── */
+.text-primary {
+  color: var(--text-primary);
+}
 .divider {
   height: 1px;
   background: linear-gradient(90deg, rgba(36, 102, 242, 0) 0%, #2466F2 50%, rgba(36, 102, 242, 0) 100%);
@@ -154,22 +159,7 @@ body {
   padding-bottom: 100px;
 }
 
-/* Backgrounds */
-.bg-primary   { background-color: var(--bg); }
-.bg-secondary { background-color: var(--bg2); }
-.bg-surface   { background-color: var(--surface); }
-.bg-surface2  { background-color: var(--surface2); }
 
-/* Text */
-.text-primary   { color: var(--text); }
-.text-secondary { color: var(--text2); }
-.text-muted     { color: var(--text3); }
-.text-blue      { color: var(--blue2); }
-
-/* Borders */
-.border-default { border: 1px solid var(--border); }
-.border-strong  { border: 1px solid var(--border2); }
-.border-blue    { border: 1px solid var(--blue); }
 
 /* Buttons */
 .btn-primary {
@@ -215,31 +205,7 @@ body {
   transform: translateY(-1px);
 }
 
-/* Badge/Pill */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--surface);
-  border: 1px solid var(--border2);
-  padding: 8px 16px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text2);
-  letter-spacing: 0.02em;
-}
-.badge-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--blue2);
-  flex-shrink: 0;
-}
-.badge-dot--pulse {
-  animation: pulse2 2s ease-in-out infinite;
-  box-shadow: 0 0 8px var(--blue2);
-}
+
 nav {
   position: relative; /* Essential for positioning the border line */
   /* Your existing nav styles (background, padding, etc.) */
@@ -269,14 +235,7 @@ footer::after {
   /* Using your specific gradient */
   background: linear-gradient(90deg, rgba(36, 102, 242, 0) 0%, #2466F2 50%, rgba(36, 102, 242, 0) 100%);
 }
-/* Card */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  transition: border-color 0.2s;
-}
-.card:hover { border-color: var(--border2); }
+
 
 /* Scroll-animation initial states */
 .gsap-fade-up   { opacity: 0; transform: translateY(40px); }
@@ -297,31 +256,14 @@ footer::after {
   -webkit-backdrop-filter: blur(20px);
 }
 
-/* Mobile menu transition */
-.mobile-nav-enter { transform: translateY(-10px); opacity: 0; }
-.mobile-nav-enter-active {
-  transform: translateY(0); opacity: 1;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-}
 
-/* Module accordion */
-.module-lessons {
-  overflow: hidden;
-  transition: max-height 0.35s ease;
-}
 
 /* Glow effects */
 .glow-blue {
   box-shadow: 0 0 40px var(--blue-glow2);
 }
-.glow-dot {
-  box-shadow: 0 0 14px var(--blue-glow);
-}
 
-/* Testimonial grid featured span */
-@media (min-width: 768px) {
-  .testi-featured { grid-row: span 2; }
-}
+
 
 @media (max-width: 768px) {
   .section-py { padding-top: 70px; padding-bottom: 70px; }

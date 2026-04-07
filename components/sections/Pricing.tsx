@@ -27,7 +27,7 @@ export default function Pricing() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1200px] mx-auto items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {/* Left — what you get */}
           <div className="gsap-fade-up md:col-span-2 rounded-xl border p-9 flex flex-col justify-center" style={{ background: "var(--surface)", borderColor: "var(--border)" }}>
             <div className="mb-6">
@@ -49,8 +49,7 @@ export default function Pricing() {
                       <SunMoonBgIcon size={32} withBorder={true} />
                     </div>
                     <HexagonIcon
-                      className={`relative z-10 w-[16px] h-[16px] transition-colors 
-                ${theme === "light" ? "text-slate-800" : "text-white"}`}
+                      className="relative z-10 w-[16px] h-[16px] transition-colors text-primary"
                     />
                   </div>
                   <span className="body-sm" style={{ color: "var(--text)", top: "5px", position: "relative" }}>
@@ -109,8 +108,7 @@ export default function Pricing() {
                       <SunMoonBgIcon size={32} withBorder={true} />
                     </div>
                     <CheckIcon
-                      className={`relative z-10 w-[16px] h-[16px] transition-colors 
-                ${theme === "light" ? "text-slate-800" : "text-white"}`}
+                      className="relative z-10 w-[16px] h-[16px] transition-colors text-primary"
                     />
                   </div>
                   {f}

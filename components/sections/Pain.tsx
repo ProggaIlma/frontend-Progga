@@ -37,13 +37,11 @@ export default function Pain() {
           </div>
 
           {/* Right dark panel */}
-          <div 
-       className="gsap-slide-right gap-10 rounded-[20px] overflow-hidden flex flex-col p-8 min-h-[340px]"
- style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
+          <div className="gsap-slide-right gap-10 rounded-[20px] overflow-hidden flex flex-col p-10 min-h-[340px]" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
             {/* Top row: No worries pill (left) + Avatars (right) */}
             <div className="flex flex-col sm:flex-row items-start justify-start sm:justify-between gap-4">
               {/* No worries pill */}
-              
+
               <Badge>No worries</Badge>
 
               {/* Avatars + label */}
@@ -70,15 +68,14 @@ export default function Pain() {
               </div>
             </div>
 
-            {/* Middle: quote text aligned to center of the side images block (3×120 + 2×12gap = 384px, bottom-4 = 16px) */}
             {/* Body: text left, side images right */}
             <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-start gap-4 pt-12">
               {/* Text */}
-              <div className="flex flex-col text-left">
-                <p className="text-sm mb-4" style={{ color: "var(--text3)" }}>
+              <div className="flex flex-col text-left pr-10">
+                <p className="text-body-normal mb-4 pr-3" style={{ color: "var(--text3)" }}>
                   The ability to concentrate deeply is the ultimate productivity hack
                 </p>
-                <p className="font-semibold leading-tight" style={{ color: "var(--text)", fontSize: "clamp(1.5rem, 3vw, 2rem)" }}>
+                <p className="font-medium leading-tight pr-3" style={{ color: "var(--text)", fontSize: "clamp(1.5rem, 3vw, 2rem)" }}>
                   And fortunately it&apos;s a skill you can train &amp; develop.
                 </p>
               </div>

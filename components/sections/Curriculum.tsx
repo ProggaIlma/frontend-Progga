@@ -96,7 +96,7 @@ export default function Curriculum() {
                   {/* Module header */}
                   <button className="w-full flex items-start justify-between py-6 text-left bg-transparent border-none cursor-pointer gap-4" onClick={() => toggle(mi)}>
                     <div>
-                      <p className="font-medium text-h5 leading-snug mb-1" style={{ color: "var(--text)" }}>
+                      <p className="font-medium  leading-snug mb-1" style={{ color: "var(--text)",fontSize:"20px" }}>
                         {mod.title}
                       </p>
                       <p className="font-normal text-sm" style={{ color: "var(--text2)" }}>
@@ -176,10 +176,13 @@ export default function Curriculum() {
           </div>
           {/* Right — sticky sidebar */}
           <div
-            className="gsap-scale-in rounded-2xl p-8 lg:sticky w-full"
+            className="gsap-scale-in border rounded-2xl p-8 lg:sticky w-full"
             style={{
-              background: "var(--surface)",
-              border: "1px solid var(--border2)",
+             borderColor: "transparent",
+                  background: `
+    linear-gradient(var(--surface), var(--surface)) padding-box, 
+    linear-gradient(135deg, #2466F2 0%, rgba(36,102,242,0.4) 35%, rgba(36,102,242,0) 65%, #2466F2 100%) border-box
+  `,
               top: "calc(var(--nav-h) + 20px)",
               height: "fit-content",
             }}
@@ -196,8 +199,7 @@ export default function Curriculum() {
                       <SunMoonBgIcon size={32} withBorder={true} />
                     </div>
                     <CheckIcon
-                      className={`relative z-10 w-[16px] h-[16px] transition-colors 
-                ${theme === "light" ? "text-slate-800" : "text-white"}`}
+                      className="relative z-10 w-[16px] h-[16px] transition-colors text-primary"
                     />
                   </div>
                   <span className="text-sm" style={{ color: "var(--text2)", lineHeight: 1.5 }}>

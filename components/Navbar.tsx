@@ -20,12 +20,9 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const closeMobile = () => setOpen(false);
-useEffect(() => {
-    console.log("Mounted, setting theme to:", theme);
-  }, [theme]);
+
   return (
     <>
-      {/* ── Main nav bar ── */}
       <nav
         className="nav-blur fixed top-0 left-0 right-0 z-50 border-b border-[var(--border)] border-[var(--nav-border)]] transition-colors"
         style={{ height: "var(--nav-h)", background: theme === "dark" ? "rgba(10,10,15,0.2)" : "rgba(245,245,248,0.2)" }}
@@ -59,7 +56,7 @@ useEffect(() => {
                   </div>
                 )}
 
-                <MoonIcon className={`relative z-10 w-[14px] h-[14px] transition-colors ${theme === "dark" ? "text-white" : "text-slate-800 "}`} />
+                <MoonIcon className={`relative z-10 w-[14px] h-[14px] transition-colors text-primary`} />
               </div>
 
               <div onClick={() => setTheme("light")} className="relative w-7 h-7 rounded-full flex items-center justify-center transition-all cursor-pointer overflow-hidden">
@@ -69,7 +66,7 @@ useEffect(() => {
                   </div>
                 )}
 
-                <SunIcon className={`relative z-10 w-[14px] h-[14px] transition-colors ${theme === "light" ? "text-slate-800" : "text-white "}`} />
+                <SunIcon className={`relative z-10 w-[14px] h-[14px] transition-colors text-primary`} />
               </div>
             </div>
 
@@ -87,8 +84,7 @@ useEffect(() => {
                       <SunMoonBgIcon size={60}  />
                     </div>
                    <HamburgerIcon width={28} height={28}
-                      className={`relative z-10 w-[28px] h-[28px] transition-colors 
-                ${theme === "light" ? "text-slate-800" : "text-white"}`}
+                      className="relative z-10 w-[28px] h-[28px] transition-colors text-primary"
                     />
                   </div>
               
