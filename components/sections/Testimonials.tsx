@@ -82,8 +82,8 @@ export default function Testimonials() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => scroll("left")}
-              className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95"
-              style={{ background: "var(--surface3)", border: "1px solid var(--border)" }}
+              className="w-10 h-10 rounded-full flex items-center justify-center bg-[var(--surface3)] hover:bg-[var(--preview-hover)]"
+            
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M10 3L6 8l4 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -91,8 +91,8 @@ export default function Testimonials() {
             </button>
             <button
               onClick={() => scroll("right")}
-              className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95"
-              style={{ background: "var(--surface3)", border: "1px solid var(--border)" }}
+              className="w-10 h-10 rounded-full flex items-center justify-center bg-[var(--surface3)] hover:bg-[var(--preview-hover)]"
+              
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M6 3l4 5-4 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
