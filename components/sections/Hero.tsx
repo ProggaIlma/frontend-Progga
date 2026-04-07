@@ -79,7 +79,7 @@ const gradient =
           Curriculum
         </a>
       </div>
-          <div className="group relative aspect-video rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+          <div className="group relative max-w-[1064px] aspect-video rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
             <Image src="/video.png" alt="Video Thumbnail" width={1064} height={600} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
 
             {/* LAYER 5: Play Button Overlay */}

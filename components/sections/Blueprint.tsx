@@ -91,7 +91,7 @@ export default function Blueprint() {
                   zIndex: 1,
                 }}
               />
-              <div className="flex flex-col items-start gap-4 ml-9 pt-6">
+              <div className="flex flex-col items-start gap-4 ml-14 md:ml-[80px] pt-6">
                 <div className="relative w-[68px] h-[68px] rounded-full flex items-center justify-center transition-all">
                   <div className="absolute inset-0 z-0 text-[var(--neutral-200)]" style={theme === "light" ? { color: "var(--neutral-200)" } : { color: "#282d33" }}>
                     <SunMoonBgIcon size={64} withBorder={true} />

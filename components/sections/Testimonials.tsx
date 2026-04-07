@@ -104,7 +104,7 @@ export default function Testimonials() {
         {/* Scrollable row */}
         <div
           ref={scrollRef}
-          className="flex gap-4 overflow-x-auto pb-4"
+          className="flex gap-4 overflow-x-auto pb-4 px-2"
           style={{
             scrollSnapType: "x mandatory",
             scrollbarWidth: "none",
@@ -168,13 +168,13 @@ export default function Testimonials() {
                 {/* Play button — centered */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative w-[60px] h-[60px] rounded-full flex items-center justify-center transition-all">
-                    <div className="absolute inset-0 flex items-center justify-center" style={theme === "light" ? { color: "var(--blue)" } : { color: "#ffffff" }}>
+                    <div className="absolute inset-0 flex items-center justify-center text-white" >
                       <SunMoonBgIcon size={60} preview={true} />
                     </div>
 
                     <PlayIcon
                       className={`relative z-10 w-[18px] h-[21px] transition-colors 
-                ${theme === "light" ? "text-white" : "text-[var(--blue)]"}`}
+                text-[var(--blue)]`}
                     />
                   </div>
                 </div>

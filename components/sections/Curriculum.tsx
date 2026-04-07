@@ -77,7 +77,7 @@ export default function Curriculum() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start px-12 mt-5">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start px-4 md:px-12  mt-5">
           {" "}
           {/* Left — flat module list */}
           <div
@@ -116,13 +116,12 @@ export default function Curriculum() {
                     <div className="pb-4">
                       {mod.lessons.map((lesson, li) => (
                         <Fragment key={li}>
-                          <div className="flex items-center gap-3.5 py-6 px-4">
+                          <div className="flex items-center gap-3.5 py-3 px-4">
                             {/* Play circle */}
                             {!lesson.preview ? (
                               <div className="relative w-[32px] h-[32px] rounded-full flex items-center justify-center transition-all">
                                 {/* Background icon — same size as wrapper */}
-                                <div className="absolute inset-0 flex items-center justify-center text-[var(--play-btn-bg)]" 
-                               >
+                                <div className="absolute inset-0 flex items-center justify-center text-[var(--play-btn-bg)]">
                                   <SunMoonBgIcon size={32} />
                                 </div>
 
@@ -150,12 +149,7 @@ export default function Curriculum() {
                               {lesson.title}
                             </span>
 
-                            {lesson.preview && (
-                              <span className="preview-btn text-body-sm px-4 py-1 rounded-full font-medium flex-shrink-0" 
-                              >
-                                Preview
-                              </span>
-                            )}
+                            {lesson.preview && <span className="preview-btn text-body-sm px-4 py-1 rounded-full font-medium flex-shrink-0">Preview</span>}
 
                             <span className="text-body-normal flex-shrink-0" style={{ color: "var(--text2)" }}>
                               {lesson.duration}

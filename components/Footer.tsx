@@ -26,7 +26,7 @@ export default function Footer() {
               <br />
               Work Blueprint
             </h2>
-            <p className="text-body-normal mt-3 px-4" style={{ color: "var(--text2)" }}>
+            <p className="text-body-normal mt-3 " style={{ color: "var(--text2)" }}>
               Master Focus &amp; Get More Done in Less Time
             </p>
           </div>

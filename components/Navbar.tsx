@@ -45,7 +45,7 @@ export default function Navbar() {
           </ul>
 
           {/* Right side */}
-          <div className="flex items-center gap-3 ml-auto lg:ml-0">
+          <div className="flex items-center gap-8 lg:gap-3 ml-auto lg:ml-0">
           
 
             <div className="flex items-center gap-0.5 p-1 rounded-full border" style={{ background: "var(--surface2)", borderColor: "var(--border2)" }}>
@@ -71,7 +71,7 @@ export default function Navbar() {
             </div>
 
             {/* CTA */}
-            <a href="#pricing" className="btn-primary hidden sm:inline-flex">
+            <a href="#pricing" className="btn-primary !hidden lg:!flex">
               Enroll now
             </a>
 
@@ -95,9 +95,9 @@ export default function Navbar() {
 
       {/* ── Mobile menu ── */}
       {open && (
-        <div className="nav-blur h-full fixed left-0 right-0 z-40 flex flex-col px-6 py-6 gap-5 lg:hidden" style={{ top: "var(--nav-h)", background: theme === "dark" ? "rgba(10,10,15,0.2)" : "rgba(245,245,248,0.2)"   }}>
+        <div className="nav-blur h-full fixed left-0 right-0 z-40 flex flex-col px-6 py-6 gap-5 lg:hidden" style={{ top: "var(--nav-h)", background: theme === "dark" ? "rgba(10,10,15,0.3)" : "rgba(245,245,248,0.3)"   }}>
           {NAV_LINKS.map((l) => (
-            <a key={l.href} href={l.href} onClick={closeMobile} className="body-normal nav-blur text-[var(--text2)] no-underline pb-4"  >
+            <a key={l.href} href={l.href} onClick={closeMobile} className="body-normal text-[var(--text2)] no-underline pb-4"  >
               {l.label}
             </a>
           ))}

@@ -19,9 +19,9 @@ export default function Pricing() {
       <div className="container">
        
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-stretch">
           {/* Left — what you get */}
-          <div className="gsap-fade-up md:col-span-2 rounded-xl border p-9 flex flex-col justify-center" style={{ background: "var(--surface)", borderColor: "var(--border)" }}>
+          <div className="gsap-fade-up lg:col-span-3 rounded-xl border p-9 flex flex-col justify-center" style={{ background: "var(--surface)", borderColor: "var(--border)" }}>
             <div className="mb-6">
               <Badge>Introducting</Badge>{" "}
             </div>
@@ -54,7 +54,7 @@ export default function Pricing() {
 
           {/* Right — price card */}
           <div
-            className="gsap-scale-in md:col-span-1 rounded-xl border p-9 flex flex-col"
+            className="gsap-scale-in lg:col-span-2 rounded-xl border p-9 flex flex-col"
             style={{
               borderColor: "transparent",
               background: `

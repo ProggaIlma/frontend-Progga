@@ -25,18 +25,28 @@ const lineOpacity = theme === "dark" ? "0.1" : "0.18";
           <rect x="0" y="0" width="1440" height="1" fill={lineColor} />
         </pattern>
 
-        <radialGradient id="glowLeft" cx="0%" cy="100%" r="70%">
+        <radialGradient id="glowLeft" cx="0%" cy="70%" r="60%">
           <stop offset="0%"   stopColor={glowColor} stopOpacity={glowOpacity1} />
           <stop offset="60%"  stopColor="#1245B3"   stopOpacity={glowOpacity2} />
           <stop offset="100%" stopColor={base}       stopOpacity="0" />
         </radialGradient>
 
-        <radialGradient id="glowRight" cx="100%" cy="100%" r="70%">
+        <radialGradient id="glowRight" cx="100%" cy="70%" r="60%">
           <stop offset="0%"   stopColor={glowColor} stopOpacity={glowOpacity1} />
           <stop offset="60%"  stopColor="#1245B3"   stopOpacity={glowOpacity2} />
           <stop offset="100%" stopColor={base}       stopOpacity="0" />
         </radialGradient>
+{/* <radialGradient id="glowLeft" cx="0%" cy="60%" r="70%">
+  <stop offset="0%"   stopColor={glowColor} stopOpacity={glowOpacity1} />
+  <stop offset="60%"  stopColor="#1245B3"   stopOpacity={glowOpacity2} />
+  <stop offset="100%" stopColor={base}      stopOpacity="0" />
+</radialGradient>
 
+<radialGradient id="glowRight" cx="100%" cy="60%" r="70%">
+  <stop offset="0%"   stopColor={glowColor} stopOpacity={glowOpacity1} />
+  <stop offset="60%"  stopColor="#1245B3"   stopOpacity={glowOpacity2} />
+  <stop offset="100%" stopColor={base}      stopOpacity="0" />
+</radialGradient> */}
         <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
           <feGaussianBlur stdDeviation="18" />
         </filter>
