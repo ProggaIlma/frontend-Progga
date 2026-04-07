@@ -21,20 +21,32 @@ export default function Blueprint() {
       desc: "Learn neuroscience-backed techniques to reclaim your attention and work with deep clarity.",
     },
     {
-      icon: <CheckIcon  className={`relative z-10 w-[28px] h-[28px] transition-colors 
-                  ${theme === "light" ? "text-slate-800" : "text-white "}`}/>,
+      icon: (
+        <CheckIcon
+          className={`relative z-10 w-[28px] h-[28px] transition-colors 
+                  ${theme === "light" ? "text-slate-800" : "text-white "}`}
+        />
+      ),
       title: "Master deep work techniques for smarter productivity.",
       desc: "Structured frameworks that let you produce more high-quality work in less time.",
     },
     {
-      icon: <BrainIcon  className={`relative z-10 w-[28px] h-[28px] transition-colors 
-                  ${theme === "light" ? "text-slate-800" : "text-white "}`}/>,
+      icon: (
+        <BrainIcon
+          className={`relative z-10 w-[28px] h-[28px] transition-colors 
+                  ${theme === "light" ? "text-slate-800" : "text-white "}`}
+        />
+      ),
       title: "Overcome procrastination & get more done.",
       desc: "Break the procrastination cycle with proven behavioral systems and accountability loops.",
     },
     {
-      icon: <RouteIcon  className={`relative z-10 w-[28px] h-[28px] transition-colors 
-                  ${theme === "light" ? "text-slate-800" : "text-white "}`}/>,
+      icon: (
+        <RouteIcon
+          className={`relative z-10 w-[28px] h-[28px] transition-colors 
+                  ${theme === "light" ? "text-slate-800" : "text-white "}`}
+        />
+      ),
       title: "Build lasting habits for long-term success.",
       desc: "Create a sustainable productivity system that keeps working for years to come.",
     },
@@ -49,9 +61,9 @@ export default function Blueprint() {
         <h2 className="h2 gsap-fade-up max-w-[640px] mx-auto mb-16">A self-paced, results-driven course designed to help you</h2>
 
         {/* Timeline */}
-        <div className="max-w-[560px] mx-auto text-left">
+        <div className="max-w-[400px] mx-auto text-left">
           {ITEMS.map((item, i) => (
-            <div key={i} className="gsap-fade-up relative" style={{ paddingLeft: "40px", paddingBottom: i < ITEMS.length ? "66px" : "0" }} data-delay={i}>
+            <div key={i} className="gsap-fade-up relative" style={{ paddingLeft: "0px", paddingBottom: i < ITEMS.length ? "66px" : "0" }} data-delay={i}>
               {/* Vertical line — blue at top fading to transparent */}
               {i < ITEMS.length && (
                 <div
@@ -79,27 +91,27 @@ export default function Blueprint() {
                   zIndex: 1,
                 }}
               />
-<div className="flex flex-col items-start gap-4 ml-9 pt-6">
-              <div className="relative w-[68px] h-[68px] rounded-full flex items-center justify-center transition-all">
-                <div className="absolute inset-0 z-0 text-[var(--neutral-200)]" style={theme === "light" ? { color: "var(--neutral-200)" } : { color: "#282d33" }}>
-                  <SunMoonBgIcon size={64} withBorder={true}  />
+              <div className="flex flex-col items-start gap-4 ml-9 pt-6">
+                <div className="relative w-[68px] h-[68px] rounded-full flex items-center justify-center transition-all">
+                  <div className="absolute inset-0 z-0 text-[var(--neutral-200)]" style={theme === "light" ? { color: "var(--neutral-200)" } : { color: "#282d33" }}>
+                    <SunMoonBgIcon size={64} withBorder={true} />
+                  </div>
+
+                  {item.icon}
                 </div>
 
-                {item.icon}
-              </div>
-
-              {/* Title */}
-              <p
-                style={{
-                  color: "var(--text)",
-                  fontSize: "clamp(1.1rem, 2.5vw, 1.35rem)",
-                  lineHeight: "1.5",
-                  fontWeight: 400,
-                  maxWidth: "380px",
-                }}
-              >
-                {item.title}
-              </p>
+                {/* Title */}
+                <p
+                  style={{
+                    color: "var(--text)",
+                    fontSize: "clamp(1.1rem, 2.5vw, 1.35rem)",
+                    lineHeight: "1.5",
+                    fontWeight: 400,
+                    maxWidth: "380px",
+                  }}
+                >
+                  {item.title}
+                </p>
               </div>
             </div>
           ))}

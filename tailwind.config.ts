@@ -9,6 +9,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '520px',   // adds a new xs breakpoint
+        'sm': '680px',
+        'md': '980px',
+        'lg': '1920px',  // overrides default lg (was 1024px)
+      },
       fontFamily: {
         display: ["var(--font-sf-display)", "system-ui", "sans-serif"],
         body: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
@@ -23,6 +29,7 @@ const config: Config = {
         "body-sm": ["15px", { lineHeight: "135%", fontWeight: "400" }],
       },
       colors: {
+        "text-slate-800": "#171B21",
         blue: {
           50: "hsl(220, 91%, 100%)",
           100: "hsl(220, 21%, 100%)",

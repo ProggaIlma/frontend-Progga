@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { RightArrowIcon } from "./icons/RightArrow";
 import SunMoonBgIcon from "./icons/SunMonBg";
-import CircleBgIcon from "./icons/CircleBg";
 import { Fragment } from "react";
 const FOOTER_LINKS = [
   { label: "Terms & conditions", href: "#" },
@@ -15,15 +14,19 @@ const AVATARS = ["/avatar3.jpg", "/avatar2.jpg", "/avatar3.jpg"];
 
 export default function Footer() {
   return (
-    <Fragment> <div className="container" style={{  paddingTop: "60px"}}>  <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-10">
+    <Fragment>
+      {" "}
+      <div className="container" style={{ paddingTop: "60px" }}>
+        {" "}
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-8 mb-10">
           {/* Brand */}
-          <div className="gsap-fade-up">
+          <div className="gsap-fade-up text-center lg:text-left">
             <h2 className="h2" style={{ fontFamily: "var(--font-sf-display)", fontWeight: 500, lineHeight: "1.1", color: "var(--text)" }}>
               The Deep
               <br />
               Work Blueprint
             </h2>
-            <p className="body-sm mt-3" style={{ color: "var(--text2)" }}>
+            <p className="text-body-normal mt-3 px-4" style={{ color: "var(--text2)" }}>
               Master Focus &amp; Get More Done in Less Time
             </p>
           </div>
@@ -52,34 +55,31 @@ export default function Footer() {
               <p className="body-sm mt-6 font-medium text-white">Join with 5K other students</p>
             </div>
           </div>
-        </div></div>
-    <footer className="border-t" style={{ background: "var(--bg)", borderColor: "var(--border)",  paddingBottom: "40px" }}>
-      <div className="container">
-        {/* Top row */}
-      
-
-        {/* Divider */}
-      
-        {/* Bottom row */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6">
-          <p className="body-sm" style={{ color: "var(--text)" }}>
-            © Copyright 2024, All Rights Reserved
-          </p>
-          <div className="flex flex-wrap gap-6 justify-center">
-            {FOOTER_LINKS.map((l) => (
-              <a
-                key={l.label}
-                className="body-sm no-underline transition-colors"
-                style={{ color: "var(--text)" }}
-                onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--text)")}
-                onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--text)")}
-              >
-                {l.label}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
-    </footer></Fragment>
+      <footer className="border-t" style={{ background: "var(--bg)", borderColor: "var(--border)", paddingBottom: "40px" }}>
+        <div className="container">
+         
+          <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-6 pt-6">
+            <p className="body-sm text-center lg:text-left" style={{ color: "var(--text)" }}>
+              © Copyright 2024, All Rights Reserved
+            </p>
+            <div className="flex flex-wrap gap-6 justify-center">
+              {FOOTER_LINKS.map((l) => (
+                <a
+                  key={l.label}
+                  className="body-sm no-underline transition-colors"
+                  style={{ color: "var(--text)" }}
+                  onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--text)")}
+                  onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--text)")}
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </footer>
+    </Fragment>
   );
 }

@@ -5,8 +5,8 @@ import { TextureBg } from "../icons/TextureBg";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTheme } from "@/hooks/useTheme";
-import { log } from "console";
-
+import SunMoonBgIcon from "../icons/SunMonBg";
+import { PlayIcon } from "../icons/PlayIcon";
 export default function Hero() {
    const { theme } = useTheme();
 
@@ -31,7 +31,6 @@ export default function Hero() {
           transform: "translate(-50%, -50%)",
           width: "720px",
           height: "420px",
-          // background: "radial-gradient(ellipse, rgba(37,99,235,0.17) 0%, transparent 70%)",
         }}
       />
 
@@ -64,7 +63,7 @@ export default function Hero() {
       </div>
 
       {/* Video*/}
-      <section className="relative w-full max-h-[700px] pb-10 pt-24 flex items-center justify-center overflow-hidden
+      <section className="relative w-full max-h-[700px] pb-6 md:pb-10  pt-24 flex items-center justify-center overflow-hidden
       ">
         <div className="absolute inset-0"
        style={{
@@ -76,15 +75,23 @@ export default function Hero() {
 
         {/* LAYER 4: Foreground Image & Play Button */}
         <div className="relative z-10 w-full max-w-4xl px-4">
-          <div className="group relative aspect-video rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10">
+          <div className="group relative aspect-video rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
             <Image src="/video.png" alt="Video Thumbnail" width={1064} height={600} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
 
             {/* LAYER 5: Play Button Overlay */}
-            <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
-              <button className="w-20 h-20 bg-white/20 hover:bg-white/30 backdrop-blur-xl rounded-full flex items-center justify-center border border-white/30 transition-all active:scale-95 shadow-xl">
-                <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-2" />
-              </button>
-            </div>
+            
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
+
+            <div className="relative w-[60px] h-[60px] rounded-full flex items-center justify-center transition-all">
+                    <div className="absolute inset-0 flex items-center justify-center" style={theme === "light" ? { color: "var(--blue)" } : { color: "#ffffff" }}>
+                      <SunMoonBgIcon size={60} preview={true} />
+                    </div>
+
+                    <PlayIcon
+                      className={`relative z-10 w-[18px] h-[21px] transition-colors 
+                ${theme === "light" ? "text-white" : "text-[var(--blue)]"}`}
+                    />
+                  </div></div>
           </div>
         </div>
       </section>

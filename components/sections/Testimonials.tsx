@@ -83,7 +83,7 @@ export default function Testimonials() {
             <button
               onClick={() => scroll("left")}
               className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95"
-              style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
+              style={{ background: "var(--surface3)", border: "1px solid var(--border)" }}
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M10 3L6 8l4 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -92,7 +92,7 @@ export default function Testimonials() {
             <button
               onClick={() => scroll("right")}
               className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95"
-              style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
+              style={{ background: "var(--surface3)", border: "1px solid var(--border)" }}
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M6 3l4 5-4 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -148,7 +148,7 @@ export default function Testimonials() {
                   border: "1px solid var(--border)",
                   scrollSnapAlign: "start",
                   borderColor: "transparent",
-  background: `
+                  background: `
     linear-gradient(var(--surface), var(--surface)) padding-box, 
     linear-gradient(135deg, #2466F2 0%, rgba(36,102,242,0) 35%, rgba(36,102,242,0) 65%, #2466F2 100%) border-box
   `,
@@ -181,8 +181,8 @@ export default function Testimonials() {
 
                 {/* Name / role at bottom */}
                 <div className="relative z-10 p-5">
-                  <p className="font-semibold text-sm text-white">{t.name}</p>
-                  <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.6)" }}>
+                  <p className="font-semibold text-h6 text-white">{t.name}</p>
+                  <p className="text-body-sm mt-0.5" style={{ color: "rgba(255,255,255,0.6)" }}>
                     {t.role}
                   </p>
                 </div>
@@ -194,11 +194,11 @@ export default function Testimonials() {
                 data-card
                 className="rounded-2xl border p-6 flex flex-col justify-between flex-shrink-0"
                 style={{
-                 
                   width: "clamp(260px, 30vw, 340px)",
                   minHeight: "380px",
-                  scrollSnapAlign: "start",borderColor: "transparent",
-  background: `
+                  scrollSnapAlign: "start",
+                  borderColor: "transparent",
+                  background: `
     linear-gradient(var(--surface), var(--surface)) padding-box, 
     linear-gradient(135deg, #2466F2 0%, rgba(36,102,242,0.4) 35%, rgba(36,102,242,0) 65%, #2466F2 100%) border-box
   `,
@@ -210,16 +210,16 @@ export default function Testimonials() {
                 </div>
 
                 {/* Quote */}
-                <p className="flex-1 body-sm" style={{ color: "var(--text2)", lineHeight: "1.7" }}>
+                <p className="flex-1 text-body-normal" style={{ color: "var(--text2)" }}>
                   {t.text}
                 </p>
 
                 {/* Name / role */}
-                <div className="mt-6 pt-4" style={{ borderTop: "1px solid var(--border)" }}>
-                  <p className="font-semibold text-sm" style={{ color: "var(--text)" }}>
+                <div className="mt-6 pt-4">
+                  <p className="font-semibold text-h6" style={{ color: "var(--text)" }}>
                     {t.name}
                   </p>
-                  <p className="text-xs mt-0.5" style={{ color: "var(--text2)" }}>
+                  <p className="text-body-sm mt-0.5" style={{ color: "var(--text2)" }}>
                     {t.role}
                   </p>
                 </div>

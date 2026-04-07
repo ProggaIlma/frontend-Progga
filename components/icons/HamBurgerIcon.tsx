@@ -2,27 +2,39 @@
 
 import React from "react";
 
-interface LightbulbIconProps extends React.SVGProps<SVGSVGElement> {
+interface HamburgerIconProps extends React.SVGProps<SVGSVGElement> {
   size?: number;
   color?: string;
 }
 
-export const LightbulbIcon: React.FC<LightbulbIconProps> = ({ 
-  size = 20, 
+export const HamburgerIcon: React.FC<HamburgerIconProps> = ({ 
+  width = 28, 
+  height = 28, 
   color = "currentColor", 
   className, 
   ...props 
 }) => {
   return (
     <svg
-      width={size}
-      height={size}
-      viewBox="0 0 20 20"
+      width={width}
+      height={height}
+      viewBox="0 0 28 28" // Match the viewBox to the intended size
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       {...props}
     >
-<path d="M0.75 0.75H16.75M0.75 6.75H16.75M0.75 12.75H16.75" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>  </svg>
+      {/* Centered Paths for 28x28:
+         - Lines are 20px wide (starts at 4, ends at 24)
+         - Vertical positions: 8 (top), 14 (center), 20 (bottom)
+      */}
+      <path 
+        d="M4 8H24M4 14H24M4 20H24" 
+        stroke={color} 
+        strokeWidth="2" // Slightly thicker for a 60px circle
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 };

@@ -32,7 +32,7 @@ export default function Pain() {
         {/* Bottom two-col layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
           {/* Left photo */}
-          <div className="gsap-slide-left rounded-[20px] max-h-[642px] overflow-hidden lg:min-h-full" style={{ border: "1px solid var(--border)" }}>
+          <div className="hidden lg:block gsap-slide-left rounded-[20px] max-h-[642px] overflow-hidden lg:min-h-full" style={{ border: "1px solid var(--border)" }}>
             <Image src="/front1.png" alt="focused work" width={365} height={440} className="w-full h-full object-cover" style={{ minHeight: "300px" }} />
           </div>
 
@@ -41,18 +41,14 @@ export default function Pain() {
        className="gsap-slide-right gap-10 rounded-[20px] overflow-hidden flex flex-col p-8 min-h-[340px]"
  style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
             {/* Top row: No worries pill (left) + Avatars (right) */}
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex flex-col sm:flex-row items-start justify-start sm:justify-between gap-4">
               {/* No worries pill */}
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full" style={{ background: "var(--surface2)", border: "1px solid var(--border)" }}>
-                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse flex-shrink-0" />
-                <span className="text-sm" style={{ color: "var(--text2)" }}>
-                  No worries
-                </span>
-              </div>
+              
+              <Badge>No worries</Badge>
 
               {/* Avatars + label */}
-              <div className="flex flex-col items-end gap-2">
-                <div className="flex items-center">
+              <div className="flex flex-col sm:items-end gap-2">
+                <div className="flex sm:items-center">
                   {PAIN_PHOTOS.map((src, i) => (
                     <div
                       key={i}
@@ -76,7 +72,7 @@ export default function Pain() {
 
             {/* Middle: quote text aligned to center of the side images block (3×120 + 2×12gap = 384px, bottom-4 = 16px) */}
             {/* Body: text left, side images right */}
-            <div className="flex-1 flex items-center justify-between gap-4 pt-12">
+            <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-start gap-4 pt-12">
               {/* Text */}
               <div className="flex flex-col text-left">
                 <p className="text-sm mb-4" style={{ color: "var(--text3)" }}>
@@ -88,7 +84,7 @@ export default function Pain() {
               </div>
 
               {/* Side images */}
-              <div className="hidden lg:flex flex-col gap-3 flex-shrink-0">
+              <div className="flex flex-row sm:flex-col  gap-3 flex-shrink-0">
                 {SIDE_IMGS.map((src, i) => (
                   <div key={i} className="w-[118px] h-[120px] rounded-xl overflow-hidden" style={{ border: "1px solid var(--border2)" }}>
                     <Image src={src} alt="student" width={118} height={120} className="w-full h-full object-cover" />

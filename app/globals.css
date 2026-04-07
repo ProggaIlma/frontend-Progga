@@ -26,6 +26,7 @@
   --bg3:      #13131e;
   --surface:  #111214;
   --surface2: #1c1c28;
+  --surface3: #171B21;
 
 --nav-border: linear-gradient(90deg, rgba(36, 102, 242, 0) 0%, #2466F2 50%, rgba(36, 102, 242, 0) 100%);
 
@@ -50,6 +51,7 @@
   --bg3:      #e8e8ef;
   --surface:  #edeff0;
   --surface2: #f0f0f5;
+  --surface3: #ffffff;
   --border:   rgba(0,0,0,0.07);
   --border2:  rgba(0,0,0,0.13);
   --headtext: #09090f;
@@ -177,7 +179,7 @@ body {
   background: var(--blue);
   color: #ffffff;
   border: none;
-  padding: 11px 22px;
+  padding: 10px 22px;
   border-radius: 8px;
   font-family: var(--font-dm-sans);
   font-size: 15px;

@@ -7,6 +7,7 @@ import SunIcon from "./icons/SunIcon";
 import MoonIcon from "./icons/MoonIcon";
 import SunMoonBgIcon from "./icons/SunMonBg";
 import LogoIcon from "./icons/LogoIcon";
+import {HamburgerIcon} from "./icons/HamBurgerIcon";
 const NAV_LINKS = [
   { label: "Overview", href: "#overview" },
   { label: "Curriculum", href: "#curriculum" },
@@ -27,7 +28,7 @@ useEffect(() => {
       {/* ── Main nav bar ── */}
       <nav
         className="nav-blur fixed top-0 left-0 right-0 z-50 border-b border-[var(--border)] border-[var(--nav-border)]] transition-colors"
-        style={{ height: "var(--nav-h)", background: theme === "dark" ? "rgba(10,10,15,0.78)" : "rgba(245,245,248,0.84)" }}
+        style={{ height: "var(--nav-h)", background: theme === "dark" ? "rgba(10,10,15,0.2)" : "rgba(245,245,248,0.2)" }}
       >
         <div className="container h-full flex items-center gap-6">
           {/* Logo */}
@@ -36,7 +37,7 @@ useEffect(() => {
           </Link>
 
           {/* Desktop links */}
-          <ul className="hidden md:flex items-center gap-8 mx-auto list-none">
+          <ul className="hidden lg:flex items-center gap-8 mx-auto list-none">
             {NAV_LINKS.map((l) => (
               <li key={l.href}>
                 <a href={l.href} className="body-sm h4 text-[var(--text)] no-underline">
@@ -47,7 +48,7 @@ useEffect(() => {
           </ul>
 
           {/* Right side */}
-          <div className="flex items-center gap-3 ml-auto md:ml-0">
+          <div className="flex items-center gap-3 ml-auto lg:ml-0">
           
 
             <div className="flex items-center gap-0.5 p-1 rounded-full border" style={{ background: "var(--surface2)", borderColor: "var(--border2)" }}>
@@ -78,22 +79,19 @@ useEffect(() => {
             </a>
 
             {/* Hamburger */}
-            <button className="flex md:hidden flex-col gap-[5px] p-1 bg-transparent border-none cursor-pointer" onClick={() => setOpen((o) => !o)} aria-label="Toggle menu">
-              <span
-                className="block w-[22px] h-[2px] rounded-sm transition-all duration-300"
-                style={{
-                  background: "var(--text)",
-                  transform: open ? "translateY(7px) rotate(45deg)" : "none",
-                }}
-              />
-              <span className="block w-[22px] h-[2px] rounded-sm transition-all duration-300" style={{ background: "var(--text)", opacity: open ? 0 : 1 }} />
-              <span
-                className="block w-[22px] h-[2px] rounded-sm transition-all duration-300"
-                style={{
-                  background: "var(--text)",
-                  transform: open ? "translateY(-7px) rotate(-45deg)" : "none",
-                }}
-              />
+            <button className="flex lg:hidden flex-col gap-[5px] p-1 bg-transparent border-none cursor-pointer" 
+            onClick={() => setOpen((o) => !o)} aria-label="Toggle menu">
+            
+             <div className="relative w-[60px] h-[60px] rounded-full flex items-center justify-center transition-all">
+                    <div className="absolute inset-0 flex items-center justify-center" style={theme === "light" ? { color: "var(--neutral-200)" } : { color: "#282d33" }}>
+                      <SunMoonBgIcon size={60}  />
+                    </div>
+                   <HamburgerIcon width={28} height={28}
+                      className={`relative z-10 w-[28px] h-[28px] transition-colors 
+                ${theme === "light" ? "text-slate-800" : "text-white"}`}
+                    />
+                  </div>
+              
             </button>
           </div>
         </div>
@@ -101,15 +99,13 @@ useEffect(() => {
 
       {/* ── Mobile menu ── */}
       {open && (
-        <div className="fixed left-0 right-0 z-40 border-b flex flex-col px-6 py-6 gap-5 md:hidden" style={{ top: "var(--nav-h)", background: "var(--bg2)", borderColor: "var(--border)" }}>
+        <div className="nav-blur h-full fixed left-0 right-0 z-40 flex flex-col px-6 py-6 gap-5 lg:hidden" style={{ top: "var(--nav-h)", background: theme === "dark" ? "rgba(10,10,15,0.2)" : "rgba(245,245,248,0.2)"   }}>
           {NAV_LINKS.map((l) => (
-            <a key={l.href} href={l.href} onClick={closeMobile} className="body-normal text-[var(--text2)] no-underline border-b pb-4" style={{ borderColor: "var(--border)" }}>
+            <a key={l.href} href={l.href} onClick={closeMobile} className="body-normal nav-blur text-[var(--text2)] no-underline pb-4"  >
               {l.label}
             </a>
           ))}
-          <a href="#pricing" className="btn-primary mt-2" onClick={closeMobile}>
-            Enroll now
-          </a>
+         
         </div>
       )}
     </>

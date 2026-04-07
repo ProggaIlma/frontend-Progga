@@ -54,7 +54,6 @@ const FEATURES = [
 ];
 
 export default function Curriculum() {
-  // Set of open indices — multiple can be open
   const [openSet, setOpenSet] = useState<Set<number>>(new Set());
   const { theme } = useTheme();
   const toggle = (i: number) => {
@@ -78,7 +77,7 @@ export default function Curriculum() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start px-3">
           {" "}
           {/* Left — flat module list */}
           <div
@@ -97,7 +96,7 @@ export default function Curriculum() {
                   {/* Module header */}
                   <button className="w-full flex items-start justify-between py-6 text-left bg-transparent border-none cursor-pointer gap-4" onClick={() => toggle(mi)}>
                     <div>
-                      <p className="font-medium text-[20px] leading-snug mb-1" style={{ color: "var(--text)" }}>
+                      <p className="font-medium text-h5 leading-snug mb-1" style={{ color: "var(--text)" }}>
                         {mod.title}
                       </p>
                       <p className="font-normal text-sm" style={{ color: "var(--text2)" }}>
@@ -148,17 +147,17 @@ export default function Curriculum() {
                               </div>
                             )}
 
-                            <span className="text-[20px] font-normal flex-1" style={{ color: "var(--text2)" }}>
+                            <span className="text-body-normal flex-1" style={{ color: "var(--text2)" }}>
                               {lesson.title}
                             </span>
 
                             {lesson.preview && (
-                              <span className="text-[17px] px-4 py-1 rounded-full font-medium flex-shrink-0" style={{ background: "rgba(37,99,235,0.15)", color: "var(--blue2)" }}>
+                              <span className="text-body-normal px-4 py-1 rounded-full font-medium flex-shrink-0" style={{ background: "rgba(37,99,235,0.15)", color: "var(--blue2)" }}>
                                 Preview
                               </span>
                             )}
 
-                            <span className="text-[17px] flex-shrink-0" style={{ color: "var(--text2)" }}>
+                            <span className="text-body-normal flex-shrink-0" style={{ color: "var(--text2)" }}>
                               {lesson.duration}
                             </span>
                           </div>
@@ -185,7 +184,7 @@ export default function Curriculum() {
               height: "fit-content",
             }}
           >
-            <h3 className="font-semibold mb-8" style={{ color: "var(--text)", fontSize: "clamp(1.3rem, 2.5vw, 1.6rem)", lineHeight: 1.3 }}>
+            <h3 className="text-h3 mb-8" style={{ color: "var(--text)", fontSize: "clamp(1.3rem, 2.5vw, 1.6rem)", lineHeight: 1.3 }}>
               Not only video lessons!
             </h3>
 
@@ -208,7 +207,7 @@ export default function Curriculum() {
               ))}
             </div>
 
-            <a href="#pricing" className="btn-primary block text-center w-full" style={{ fontSize: "15px", padding: "15px", borderRadius: "12px" }}>
+            <a href="#pricing" className="text-body-normal btn-primary block text-center w-full px-4 py-5" style={{   borderRadius: "12px" }}>
               Enroll now
             </a>
           </div>
